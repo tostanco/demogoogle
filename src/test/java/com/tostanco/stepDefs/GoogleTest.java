@@ -11,7 +11,7 @@ import com.tostanco.RunCukesTest;
 import com.tostanco.pages.GooglePage;
 
 import io.cucumber.java.en.Given;
-// import io.qameta.allure.Description;
+import io.qameta.allure.*;
 
 
 public class GoogleTest {
@@ -39,6 +39,11 @@ public class GoogleTest {
     // @Description("Description - trying to load first page")
     // @Test    ///sprawdzić
     @Given("Page is loaded")
+    @Epic("Tools QA")
+    @Feature("Forms")
+    @Story("Practice Form")
+    @Description("Sprawdzenie poprawności placeholdera, po wypełnieniu i wyczyszczeniu pola")
+    @TmsLink("JIRA-125") //link z Test Casem do Jiry
     public void googleBasicTest() throws InterruptedException {
         googlePage = new GooglePage(driver);
 

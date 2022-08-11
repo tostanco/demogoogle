@@ -12,8 +12,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 features = "src/test/resources/com/tostanco", 
 glue = { "com.tostanco.stepDefs" }, 
-plugin = { "pretty", "html:target/htmlReport",  
-"json:target/report.json"},
+// plugin = { "pretty", "html:target/htmlReport",  
+// "json:target/report.json"},
 // plugin = { "pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
 // "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm" }, 
 // plugin = { "pretty", "html:target/allure-results" }, 

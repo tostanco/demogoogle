@@ -17,7 +17,11 @@
     <properties>
         <cucumber.version>7.6.0</cucumber.version>
         <java.version>17</java.version>
-        <!-- <aspectj.version>1.8.10</aspectj.version> -->
+        <allure.maven.report.generator.version>2.11.2</allure.maven.report.generator.version>
+        <allure.cli.runner.version>2.14.0</allure.cli.runner.version>
+        <allure.report.directory>${pom.basedir}/target</allure.report.directory>
+        <aspectj.version>1.9.9.1</aspectj.version>
+        <maven.remote.resources.plugin>1.6.0</maven.remote.resources.plugin>
     </properties>
 
     <dependencies>
@@ -102,7 +106,19 @@
             <artifactId>allure-cucumber7-jvm</artifactId>
             <version>2.18.1</version>
         </dependency> -->
-        
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit-platform -->
+<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-junit-platform</artifactId>
+    <version>2.19.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
+<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-maven</artifactId>
+    <version>2.11.2</version>
+</dependency>
 
 
     </dependencies>
@@ -126,20 +142,21 @@
                 <version>3.0.0-M7</version>
                <!--   <configuration>
                     
-                  </configuration>
+                  </configuration>-->
                   
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
                         <version>${aspectj.version}</version>
+                        <!-- <scope>runtime</scope> -->
                     </dependency>
-                    <dependency>
+                    <!-- <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
                         <version>5.9.0</version>
-                    </dependency>
-                </dependencies>-->
+                    </dependency> -->
+                </dependencies>
             </plugin> 
             <!-- <plugin>
                 <groupId>io.qameta.allure</groupId>
@@ -153,7 +170,22 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.11.2</version>
+                <version>${allure.maven.report.generator.version}</version>
+                <configuration>
+                    <reportVersion>${allure.cli.runner.version}</reportVersion>
+                    <reportTimeout>6000</reportTimeout>
+                    <serveTimeout>6000</serveTimeout>
+                    <resultsDirectory>${allure.report.directory}/allure-results</resultsDirectory>
+                    <reportDirectory>${allure.report.directory}/allure-report</reportDirectory>
+                    <allureDownloadUrl>
+                        https://repo1.maven.org/maven2/io/qameta/allure/allure-commandline/${allure.cli.runner.version}/allure-commandline-${allure.cli.runner.version}.zip
+                    </allureDownloadUrl>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-remote-resources-plugin</artifactId>
+                <version>${maven.remote.resources.plugin}</version>
             </plugin>
         </plugins>
     </build>
