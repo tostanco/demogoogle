@@ -6,19 +6,20 @@ import org.junit.Test;
 // import org.junit.jupiter.api.DisplayName;
 // import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.tostanco.RunCukesTest;
 import com.tostanco.pages.GooglePage;
 
-import io.cucumber.java.en.Given;
-import io.qameta.allure.*;
-
+import io.cucumber.java.en.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 
 public class GoogleTest {
 
     WebDriver driver = null;
     GooglePage googlePage;
-
+    Logger logger = LoggerFactory.getLogger(GooglePage.class);
     // @BeforeAll
     // static void setupAll() {
     // WebDriverManager.chromedriver().setup();
@@ -34,20 +35,57 @@ public class GoogleTest {
     // driver.quit();
     // }
 
-    
-    // @DisplayName("Display name - trying to load first page")
-    // @Description("Description - trying to load first page")
-    // @Test    ///sprawdzić
+    // @DisplayName //<<<< removed!!!!!!
+    // @Test // import z JUnit; powoduje ponowne odpalenie testów
     @Given("Page is loaded")
-    @Epic("Tools QA")
-    @Feature("Forms")
-    @Story("Practice Form")
-    @Description("Sprawdzenie poprawności placeholdera, po wypełnieniu i wyczyszczeniu pola")
-    @TmsLink("JIRA-125") //link z Test Casem do Jiry
+    // @Epic("Tools QA")
+    // @Feature("Forms")
+    // @Story("Practice Form")
+    @Description("Sprawdzenie ładowania strony")
+    // @TmsLink("JIRA-125") //przykładowy link z Test Casem do Jiry
+    @Step("Ładowanie")
     public void googleBasicTest() throws InterruptedException {
         googlePage = new GooglePage(driver);
 
         googlePage.testBrowser();
+    }
+
+    @When("I click button")
+    public void I_click_button() {
+        logger.info("klikanie-----------------------------------------");
+        System.out.println("Button clicked");
+        // Write code here that turns the phrase above into concrete actions
+    }
+
+    @Then("notification will disappear")
+    public void notification_will_disappear() {
+        logger.atInfo();
+        System.out.println("Whole page is visible");
+        // Write code here that turns the phrase above into concrete actions
+    }
+
+    @Override
+    public void testStarted(String testName) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void testEnded(String testName) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void testFailed(int status, junit.framework.Test test, Throwable e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    protected void runFailed(String message) {
+        // TODO Auto-generated method stub
+        
     }
 
     // @Given("Page is loaded")
