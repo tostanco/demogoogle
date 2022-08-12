@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import com.tostanco.pages.GooglePage;
 
 import io.cucumber.java.en.*;
+import io.netty.util.internal.logging.Log4JLoggerFactory;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 
@@ -19,7 +20,7 @@ public class GoogleTest {
 
     WebDriver driver = null;
     GooglePage googlePage;
-    Logger logger = LoggerFactory.getLogger(GooglePage.class);
+    // Class<Log4JLoggerFactory> loggerFactory = Log4JLoggerFactory.class;
     // @BeforeAll
     // static void setupAll() {
     // WebDriverManager.chromedriver().setup();
@@ -52,41 +53,19 @@ public class GoogleTest {
 
     @When("I click button")
     public void I_click_button() {
-        logger.info("klikanie-----------------------------------------");
+        
         System.out.println("Button clicked");
         // Write code here that turns the phrase above into concrete actions
     }
 
     @Then("notification will disappear")
     public void notification_will_disappear() {
-        logger.atInfo();
+        // logger.atInfo();
         System.out.println("Whole page is visible");
         // Write code here that turns the phrase above into concrete actions
     }
 
-    @Override
-    public void testStarted(String testName) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void testEnded(String testName) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void testFailed(int status, junit.framework.Test test, Throwable e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    protected void runFailed(String message) {
-        // TODO Auto-generated method stub
-        
-    }
+   
 
     // @Given("Page is loaded")
     // public void Page_is_loaded() {
