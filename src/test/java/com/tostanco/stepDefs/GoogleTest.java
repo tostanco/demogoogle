@@ -6,13 +6,9 @@ import org.junit.Test;
 // import org.junit.jupiter.api.DisplayName;
 // import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.tostanco.pages.GooglePage;
 
 import io.cucumber.java.en.*;
-import io.netty.util.internal.logging.Log4JLoggerFactory;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 
@@ -37,7 +33,7 @@ public class GoogleTest {
     // }
 
     // @DisplayName //<<<< removed!!!!!!
-    // @Test // import z JUnit; powoduje ponowne odpalenie testów
+    @Test // import z JUnit; powoduje ponowne odpalenie testów
     @Given("Page is loaded")
     // @Epic("Tools QA")
     // @Feature("Forms")
