@@ -48,8 +48,8 @@ public class GooglePage {
         Actions at = new Actions(driver);
         at.sendKeys(Keys.PAGE_DOWN).build().perform();
 
-        // driver.findElement(odrzucButton).click();
-        odrzucBtn.click();
+        driver.findElement(odrzucButton).click();
+        // odrzucBtn.click();
         // driver.manage().timeouts().getPageLoadTimeout(5);
         // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         try {

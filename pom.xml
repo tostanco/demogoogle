@@ -29,12 +29,12 @@
     <allure.cmd.download.url>
        https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
     </allure.cmd.download.url>
-        <!-- <allure.maven.report.generator.version>2.11.2</allure.maven.report.generator.version>
+        <allure.maven.report.generator.version>2.11.2</allure.maven.report.generator.version>
         <allure.cli.runner.version>2.14.0</allure.cli.runner.version>
         <allure.report.directory>${pom.basedir}/target</allure.report.directory>
-        <allure-maven.version>2.10.0</allure-maven.version>
-        <aspectj.version>1.9.1</aspectj.version>
-        <maven.remote.resources.plugin>1.6.0</maven.remote.resources.plugin> -->
+        <!-- <allure-maven.version>2.10.0</allure-maven.version> -->
+        <!-- <aspectj.version>1.9.1</aspectj.version> -->
+        <!-- <maven.remote.resources.plugin>1.6.0</maven.remote.resources.plugin> -->
     </properties>
 
     <dependencies>
@@ -141,7 +141,7 @@
     <build>
        
         <plugins>
-            <!-- <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
@@ -151,7 +151,7 @@
                     <target>${java.version}</target>
                     <compilerArgument>-Werror</compilerArgument>
                 </configuration>
-            </plugin> -->
+            </plugin>
 
             <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -179,26 +179,27 @@
                     </dependency>
                 </dependencies>
             </plugin>  -->
+            
             <!-- <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
                 <configuration>
                     <reportVersion>2.4.1</reportVersion>
-                    <reportDirectory>allure-results</reportDirectory>
+                    <reportDirectory>C:\Users\tstanko\Desktop\t23\demogoogle\target\allure-results</reportDirectory>
                 </configuration>
             </plugin>  -->
 
-            <plugin>
+            <!-- <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
-            </plugin>
-            <plugin>
+            </plugin> -->
+            <!-- <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.22.2</version>
-            </plugin>
+            </plugin> -->
 
-            <!-- <plugin>
+            <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure.version}</version>
@@ -212,7 +213,7 @@
                         ${allure.cmd.download.url}/${allure.version}/allure-commandline-${allure.version}.zip
                     </allureDownloadUrl>
                 </configuration>
-            </plugin> -->
+            </plugin>
             
             <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

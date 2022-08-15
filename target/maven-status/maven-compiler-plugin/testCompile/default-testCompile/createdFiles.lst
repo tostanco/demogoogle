@@ -1,2 +1,4 @@
 com\tostanco\RunCukesTest.class
+com\tostanco\stepDefs\GoogleTest.class
+com\tostanco\pages\GooglePage.class
 com\tostanco\stepDefs\Stepdefs.class
