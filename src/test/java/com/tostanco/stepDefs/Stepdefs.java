@@ -20,10 +20,6 @@ public class Stepdefs {
         belly.eat(cukes);
     }
 
-    // @When("^I wait {int} hour$")
-    // public void I_wait_hour(int waitingTime) {
-    // System.out.println("Waiting, waiting, waiting");
-    // }
     @When("^I wait (\\d+) hour$")
     public void i_wait_hour(int arg1) throws Throwable {
         System.out.println("Waiting, waiting, waiting");
