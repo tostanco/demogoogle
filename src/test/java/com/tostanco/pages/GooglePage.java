@@ -1,5 +1,8 @@
 package com.tostanco.pages;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,53 +16,27 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GooglePage {
 
-    WebDriver driver;
-    
+    private final WebDriver driver;
+
+// private static By odrzucButton = By.xpath("//*[text()='Odrzuć wszystko']");
+    @FindBy(xpath = "//*[text()='Odrzuć wszystko']")
+    private WebElement odrzucBtn;
+
     public GooglePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
+    }   
 
-    private static By odrzucButton = By.xpath("//*[text()='Odrzuć wszystko']");
-    
-    @FindBy(xpath = "//*[text()='Odrzuć wszystko']")
-    WebElement odrzucBtn;
-    
-    // @BeforeAll
-    // void setupAll() {
-    //     WebDriverManager.chromedriver().setup();
-    // }
-
-    // @BeforeEach
-    // void setup() {
-    //     driver = new ChromeDriver();
-    // }
-
-    // @AfterEach
-    // void teardown() {
-    //     driver.quit();
-    // }
-
-    public void testBrowser() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-
+    public void openLandingPage(){
         driver.get("https://google.com");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+    }
+    public void testBrowser() {
         Actions at = new Actions(driver);
         at.sendKeys(Keys.PAGE_DOWN).build().perform();
-
-        driver.findElement(odrzucButton).click();
-        // odrzucBtn.click();
-        // driver.manage().timeouts().getPageLoadTimeout(5);
-        // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        driver.close();
-
-        driver.quit();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        // driver.findElement(odrzucButton).click();
+        odrzucBtn.click();
+        
     }
 }
